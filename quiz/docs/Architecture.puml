@@ -1,0 +1,30 @@
+@startuml
+skinparam componentStyle rectangle
+
+package "Client" {
+  [Frontend]
+}
+
+package "Server" {
+  [Backend]
+  [WebSocket Service]
+  [Cache (Redis)]
+  [Database]
+  [API Gateway]
+}
+
+package "Monitoring Tools" {
+  [Monitoring and Logging]
+}
+
+[Frontend] --> [API Gateway] : REST API Calls
+[Frontend] --> [WebSocket Service] : WebSocket Connection
+[API Gateway] --> [Backend] : Routes API Requests
+[Backend] --> [Cache (Redis)] : Fast Session Data Updates
+[Backend] --> [Database] : Stores Persistent Data
+[Backend] --> [WebSocket Service] : Real-Time Updates
+[WebSocket Service] --> [Frontend] : Push Leaderboard Updates
+[Backend] --> [Monitoring and Logging] : Logs and Metrics
+[WebSocket Service] --> [Monitoring and Logging] : Logs
+
+@enduml

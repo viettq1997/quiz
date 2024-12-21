@@ -1,0 +1,34 @@
+@startuml
+skinparam backgroundColor #F9F9F9
+skinparam shadowing false
+skinparam ArrowColor #000000
+skinparam NodeBorderColor #000000
+skinparam NodeBackgroundColor #ADD1B2
+
+start
+
+:User enters Quiz ID;
+:Validate Quiz ID (Backend);
+
+if (Quiz ID valid?) then (Yes)
+  :Store session in Database;
+  :Cache session data;
+  :Response to Frontend (Join Success);
+else (No)
+  :Response to Frontend (Join Failure);
+  stop
+endif
+
+:User submits answer;
+:Validate answer (Backend);
+:Update score in Database;
+:Update score in Cache;
+:Push updated leaderboard via WebSocket;
+
+:Fetch scores from Cache;
+:Sort scores (Backend);
+:Send sorted leaderboard to WebSocket;
+:Push real-time leaderboard to Frontend;
+
+stop
+@enduml
