@@ -1,6 +1,5 @@
 package com.elsa.quiz.controller;
 
-import com.elsa.quiz.domain.constant.Constant;
 import com.elsa.quiz.domain.dto.JoinQuizRequest;
 import com.elsa.quiz.domain.dto.SubmitAnswerRequest;
 import com.elsa.quiz.service.QuizService;
