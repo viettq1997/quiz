@@ -6,6 +6,9 @@
 - npm 11.0.0
 - docker desktop (docker and docker compose)
 
+# Docs
+[Docs](quiz/README.md)
+
 # How to run
 ## Back End
 [Run Back end](quiz/DEVSETUP.md)
