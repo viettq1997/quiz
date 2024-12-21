@@ -19,16 +19,15 @@ else (No)
   stop
 endif
 
+:Fetch leaderboard from Cache;
 :User submits answer;
 :Validate answer (Backend);
 :Update score in Database;
 :Update score in Cache;
 :Push updated leaderboard via WebSocket;
-
-:Fetch scores from Cache;
-:Sort scores (Backend);
-:Send sorted leaderboard to WebSocket;
+:Send leaderboard to WebSocket;
 :Push real-time leaderboard to Frontend;
+:Sort scores (Frontend);
 
 stop
 @enduml
